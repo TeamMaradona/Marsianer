@@ -4,6 +4,8 @@
 
 This project is open source but restrictively licensed. It allows for viewing the source code but restricts modifications, reproductions, and reuse without explicit permission from the rights holders. This license aims to ensure that while the source code is accessible, its usage is controlled to protect the rights and intentions of the authors.
 
+The intellectual property of this project belongs to the 8 members.
+
 ## License Terms
 
 1. **Viewing**  
