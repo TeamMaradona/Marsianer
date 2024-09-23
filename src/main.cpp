@@ -31,20 +31,20 @@ loop()
   moisture::WaterValue = 477;
 
   // Feuchtigkeitsmessung
-  const int moistureInterval = moisture::getInterval(4);
-  switch (moistureInterval) {
-    case 0:
-      Serial.println("Sehr trocken");
-      break;
-    case 1:
-      Serial.println("Trocken");
-      break;
-    case 2:
-      Serial.println("Feucht");
-      break;
-    case 3:
-      Serial.println("Sehr feucht");
-      break;
+  int values[] = { moisture::getValue(5, 0),
+                   moisture::getValue(5, 1),
+                   moisture::getValue(5, 2),
+                   moisture::getValue(5, 3) };
+
+  // Schalte digitale Pins ein oder aus
+  for (int i = 0; i < 4; i++) {
+    if (values[i] < 2) {
+      digitalWrite(i, HIGH);
+    } else {
+      digitalWrite(i, LOW);
+    }
   }
+
+  // Warte 1000ms
   delay(1000);
 }
