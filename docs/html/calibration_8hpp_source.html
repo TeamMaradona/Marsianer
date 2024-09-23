@@ -109,16 +109,16 @@ $(function(){initNavTree('calibration_8hpp_source.html',''); initResizable(true)
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keywordtype">void</span></div>
 <div class="foldopen" id="foldopen00016" data-start="{" data-end="}">
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="namespacecalibration.html#a19709ba419ff8e47f455d47efbfd35ba">   16</a></span><a class="code hl_function" href="namespacecalibration.html#a19709ba419ff8e47f455d47efbfd35ba">print</a>()</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="namespacecalibration.html#a09253e637600a8af813ef01262cbf0dc">   16</a></span><a class="code hl_function" href="namespacecalibration.html#a09253e637600a8af813ef01262cbf0dc">print</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> pin)</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>{</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>  <span class="keyword">const</span> <span class="keywordtype">int</span> val = analogRead(0);</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>  Serial.println(val);</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>  <span class="keyword">const</span> <span class="keywordtype">int</span> val = analogRead(pin);</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>  Serial.println(<span class="stringliteral">&quot;AnalogPin &quot;</span> + String(pin) + <span class="stringliteral">&quot;: &quot;</span> + String(val));</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>}</div>
 </div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>} <span class="comment">// namespace calibration</span></div>
 </div>
 <div class="ttc" id="anamespacecalibration_html"><div class="ttname"><a href="namespacecalibration.html">calibration</a></div><div class="ttdef"><b>Definition</b> <a href="#l00008">calibration.hpp:8</a></div></div>
-<div class="ttc" id="anamespacecalibration_html_a19709ba419ff8e47f455d47efbfd35ba"><div class="ttname"><a href="namespacecalibration.html#a19709ba419ff8e47f455d47efbfd35ba">calibration::print</a></div><div class="ttdeci">void print()</div><div class="ttdoc">Liest den aktuellen Sensorwert des analogen Pins 0 und gibt ihn über USB aus. Diese Funktion wird ver...</div><div class="ttdef"><b>Definition</b> <a href="#l00016">calibration.hpp:16</a></div></div>
+<div class="ttc" id="anamespacecalibration_html_a09253e637600a8af813ef01262cbf0dc"><div class="ttname"><a href="namespacecalibration.html#a09253e637600a8af813ef01262cbf0dc">calibration::print</a></div><div class="ttdeci">void print(const int pin)</div><div class="ttdoc">Liest den aktuellen Sensorwert des analogen Pins 0 und gibt ihn über USB aus. Diese Funktion wird ver...</div><div class="ttdef"><b>Definition</b> <a href="#l00016">calibration.hpp:16</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

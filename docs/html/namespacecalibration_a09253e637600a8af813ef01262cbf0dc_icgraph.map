@@ -1,0 +1,5 @@
+<map id="calibration::print" name="calibration::print">
+<area shape="rect" id="Node000001" title="Liest den aktuellen Sensorwert des analogen Pins 0 und gibt ihn über USB aus. Diese Funktion wird ver..." alt="" coords="102,5,224,35"/>
+<area shape="rect" id="Node000002" href="$main_8cpp.html#afe461d27b9c48d5921c00d521181f12f" title="Hauptprogrammschleife des Projekts." alt="" coords="5,5,54,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="86,23,54,23,54,18,86,18"/>
+</map>
