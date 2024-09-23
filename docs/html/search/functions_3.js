@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['setup_0',['setup',['../main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d',1,'main.cpp']]]
+  ['readfromchannel_0',['readFromChannel',['../namespacemoisture.html#acc04058f6068986fc2294396c5710bc5',1,'moisture']]]
 ];
