@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['getinterval_0',['getInterval',['../namespacemoisture.html#aae71e61404ae97f0f1732a0ad69d9f6e',1,'moisture']]]
+  ['getvalue_0',['getValue',['../namespacemoisture.html#ab4af63c6976ed3877ef5296a4f949980',1,'moisture']]]
 ];

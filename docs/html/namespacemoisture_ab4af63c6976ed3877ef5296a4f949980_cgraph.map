@@ -1,0 +1,5 @@
+<map id="moisture::getValue" name="moisture::getValue">
+<area shape="rect" id="Node000001" title="Gibt den Feuchtigkeitswert zurück." alt="" coords="5,5,145,35"/>
+<area shape="rect" id="Node000002" href="$namespacemoisture.html#acc04058f6068986fc2294396c5710bc5" title="Liest den Wert von einem analogen Pin." alt="" coords="193,5,387,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="145,18,177,18,177,23,145,23"/>
+</map>

@@ -126,30 +126,32 @@ $(function(){initNavTree('main_8cpp_source.html',''); initResizable(true); });
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>  moisture::WaterValue = 477;</div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>  <span class="comment">// Feuchtigkeitsmessung</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>  <span class="keyword">const</span> <span class="keywordtype">int</span> moistureInterval = <a class="code hl_function" href="namespacemoisture.html#aae71e61404ae97f0f1732a0ad69d9f6e">moisture::getInterval</a>(4);</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>  <span class="keywordflow">switch</span> (moistureInterval) {</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordflow">case</span> 0:</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>      Serial.println(<span class="stringliteral">&quot;Sehr trocken&quot;</span>);</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>      <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordflow">case</span> 1:</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>      Serial.println(<span class="stringliteral">&quot;Trocken&quot;</span>);</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>      <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordflow">case</span> 2:</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>      Serial.println(<span class="stringliteral">&quot;Feucht&quot;</span>);</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>      <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordflow">case</span> 3:</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>      Serial.println(<span class="stringliteral">&quot;Sehr feucht&quot;</span>);</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>      <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>  <span class="keywordtype">int</span> values[] = { <a class="code hl_function" href="namespacemoisture.html#ab4af63c6976ed3877ef5296a4f949980">moisture::getValue</a>(5, 0),</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>                   <a class="code hl_function" href="namespacemoisture.html#ab4af63c6976ed3877ef5296a4f949980">moisture::getValue</a>(5, 1),</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>                   <a class="code hl_function" href="namespacemoisture.html#ab4af63c6976ed3877ef5296a4f949980">moisture::getValue</a>(5, 2),</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>                   <a class="code hl_function" href="namespacemoisture.html#ab4af63c6976ed3877ef5296a4f949980">moisture::getValue</a>(5, 3) };</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>  <span class="comment">// Schalte digitale Pins ein oder aus</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>  <span class="comment">// Loop über alle Werte</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 4; i++) {</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="comment">// Feuchtigkeitswert die kleiner 2 sind, schalte den Pin ein</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keywordflow">if</span> (values[i] &lt; 2) {</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>      digitalWrite(i, HIGH);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>      digitalWrite(i, LOW);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    }</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>  }</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>  delay(1000);</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>}</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>  <span class="comment">// Warte 1000ms</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>  delay(1000);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>}</div>
 </div>
 <div class="ttc" id="acalibration_8hpp_html"><div class="ttname"><a href="calibration_8hpp.html">calibration.hpp</a></div><div class="ttdoc">Enthält Funktionen zur Kalibrierung des Bodenfeuchtigkeitssensors.</div></div>
 <div class="ttc" id="amain_8cpp_html_a4fc01d736fe50cf5b977f755b675f11d"><div class="ttname"><a href="main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d">setup</a></div><div class="ttdeci">void setup()</div><div class="ttdoc">Initialisiert die serielle Kommunikation.</div><div class="ttdef"><b>Definition</b> <a href="#l00015">main.cpp:15</a></div></div>
 <div class="ttc" id="amain_8cpp_html_afe461d27b9c48d5921c00d521181f12f"><div class="ttname"><a href="main_8cpp.html#afe461d27b9c48d5921c00d521181f12f">loop</a></div><div class="ttdeci">void loop()</div><div class="ttdoc">Hauptprogrammschleife des Projekts.</div><div class="ttdef"><b>Definition</b> <a href="#l00024">main.cpp:24</a></div></div>
 <div class="ttc" id="amoisture_8hpp_html"><div class="ttname"><a href="moisture_8hpp.html">moisture.hpp</a></div><div class="ttdoc">Enthält Funktionen zur Bestimmung der Bodenfeuchtigkeit.</div></div>
 <div class="ttc" id="anamespacecalibration_html_a19709ba419ff8e47f455d47efbfd35ba"><div class="ttname"><a href="namespacecalibration.html#a19709ba419ff8e47f455d47efbfd35ba">calibration::print</a></div><div class="ttdeci">void print()</div><div class="ttdoc">Liest den aktuellen Sensorwert des analogen Pins 0 und gibt ihn über USB aus. Diese Funktion wird ver...</div><div class="ttdef"><b>Definition</b> <a href="calibration_8hpp_source.html#l00016">calibration.hpp:16</a></div></div>
-<div class="ttc" id="anamespacemoisture_html_aae71e61404ae97f0f1732a0ad69d9f6e"><div class="ttname"><a href="namespacemoisture.html#aae71e61404ae97f0f1732a0ad69d9f6e">moisture::getInterval</a></div><div class="ttdeci">const int getInterval(const int numIntervals)</div><div class="ttdoc">Berechnet das Intervall der Bodenfeuchtigkeit basierend auf der Kalibrierung.</div><div class="ttdef"><b>Definition</b> <a href="moisture_8hpp_source.html#l00050">moisture.hpp:50</a></div></div>
+<div class="ttc" id="anamespacemoisture_html_ab4af63c6976ed3877ef5296a4f949980"><div class="ttname"><a href="namespacemoisture.html#ab4af63c6976ed3877ef5296a4f949980">moisture::getValue</a></div><div class="ttdeci">const int getValue(const int numIntervals, const int channel)</div><div class="ttdoc">Gibt den Feuchtigkeitswert zurück.</div><div class="ttdef"><b>Definition</b> <a href="moisture_8hpp_source.html#l00046">moisture.hpp:46</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
