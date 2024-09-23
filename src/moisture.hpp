@@ -32,28 +32,24 @@ static inline int AirValue = 800;
 static inline int WaterValue = 400;
 
 /**
- * @brief Berechnet das Intervall der Bodenfeuchtigkeit basierend auf der
- * Kalibrierung.
+ * @brief Gibt den Feuchtigkeitswert zurück.
  *
- * Diese Funktion liest den aktuellen Bodenfeuchtigkeitswert von einem analogen
- * Pin und berechnet das entsprechende Intervall basierend auf den
- * Kalibrierungswerten für Luft und Wasser. Die Intervalle werden gleichmäßig
- * zwischen den Kalibrierungswerten aufgeteilt.
+ * Diese Funktion gibt den Feuchtigkeitswert zurück, der aufgrund des
+ * Sensorwertes berechnet wird.
  *
- * @param numIntervals Die Anzahl der Intervalle, in die der Bereich zwischen
- * den Kalibrierungswerten aufgeteilt werden soll.
- * @return Das Intervall, in dem der aktuelle Bodenfeuchtigkeitswert liegt. Wenn
- * der Wert außerhalb der Kalibrierungswerte liegt, wird das höchste Intervall
- * zurückgegeben.
+ * @param numIntervals Die Anzahl der Intervalle, in die der Bereich
+ *                     der Bodenfeuchtigkeit unterteilt werden soll.
+ * @param channel Der Kanal, von dem der Sensorwert gelesen werden soll.
+ * @return Der berechnete Feuchtigkeitswert.
  */
 const int
-getInterval(const int numIntervals)
+getValue(const int numIntervals, const int channel)
 {
   // Intervalle für die Ausgabe berechnen
   const int intervals = (AirValue - WaterValue) / numIntervals;
 
   // Sensorwert lesen
-  const int soilMoistureValue = analogRead(A0);
+  const int soilMoistureValue = readFromChannel(channel);
 
   // Berechnung des Feuchtigkeitswertes
   for (int i = 0; i < numIntervals; i++) {
@@ -63,5 +59,29 @@ getInterval(const int numIntervals)
   }
 
   return numIntervals;
+}
+
+/**
+ * @brief Liest den Wert von einem analogen Pin.
+ *
+ * Diese Funktion liest den aktuellen Wert von einem analogen Pin und gibt ihn
+ * zurück.
+ *
+ * @param channel Der Kanal, von dem der Wert gelesen werden soll.
+ * @return Der gelesene Wert.
+ */
+const int
+readFromChannel(const int channel)
+{
+  switch (channel) {
+    case 0:
+      return analogRead(A0);
+    case 1:
+      return analogRead(A1);
+    case 2:
+      return analogRead(A2);
+    case 3:
+      return analogRead(A3);
+  }
 }
 } // namespace moisture
