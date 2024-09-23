@@ -14,7 +14,7 @@
 void
 setup()
 {
-  Serial.begin(9600); // open serial port, set the baud rate to 9600 bps
+  Serial.begin(9600);
 }
 
 /**
@@ -24,29 +24,39 @@ void
 loop()
 {
   // Kalibrierungsdaten ausgeben
-  calibration::print();
+  calibration::print(0);
+  calibration::print(1);
+  calibration::print(2);
+  calibration::print(3);
 
   // Werte der Kalibrierung setzen
   moisture::AirValue = 824;
-  moisture::WaterValue = 477;
+  moisture::WaterValue = 435;
 
   // Feuchtigkeitsmessung
-  int values[] = { moisture::getValue(5, 0),
-                   moisture::getValue(5, 1),
-                   moisture::getValue(5, 2),
-                   moisture::getValue(5, 3) };
+  const int numLevels = 5;
+  int values[] = { moisture::getValue(numLevels, 0),
+                   moisture::getValue(numLevels, 1),
+                   moisture::getValue(numLevels, 2),
+                   moisture::getValue(numLevels, 3) };
 
   // Schalte digitale Pins ein oder aus
   // Loop über alle Werte
+  Serial.println("Feuchtigkeitswerte:");
   for (int i = 0; i < 4; i++) {
+    Serial.print("AnalogPin " + String(i) + ": Stufe " + String(values[i]) +
+                 " von " + numLevels + "\n");
     // Feuchtigkeitswert die kleiner 2 sind, schalte den Pin ein
-    if (values[i] < 2) {
+    if (values[i] > 5) {
       digitalWrite(i, HIGH);
+      Serial.println(">> Aktiviere DigitalPin " + String(i));
     } else {
       digitalWrite(i, LOW);
     }
   }
 
+  Serial.println("Niedrigere Stufe => feuchter");
+  Serial.println("===============================================");
   // Warte 1000ms
   delay(1000);
 }

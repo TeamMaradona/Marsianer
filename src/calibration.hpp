@@ -13,9 +13,9 @@ namespace calibration {
  * und Wasser zu bestimmen. Die Funktion wartet 1000ms zwischen den Messungen.
  */
 void
-print()
+print(const int pin)
 {
   const int val = analogRead(0);
-  Serial.println(val);
+  Serial.println("AnalogPin " + String(pin) + ": " + String(val));
 }
 } // namespace calibration
