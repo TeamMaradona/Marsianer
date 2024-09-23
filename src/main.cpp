@@ -1,12 +1,7 @@
+
+#include "calibration.hpp"
+#include "moisture.hpp"
 #include <Arduino.h>
-
-// Werte aus der Kalibrierung
-const int AirValue = 824;
-const int WaterValue = 477;
-
-// Intervalle für die Ausgabe
-int intervals = (AirValue - WaterValue) / 3;
-int soilMoistureValue = 0;
 
 // Hier wird die Funktion der Pins festgelegt
 void
@@ -19,16 +14,24 @@ setup()
 void
 loop()
 {
-  soilMoistureValue = analogRead(A0);
-  if (soilMoistureValue > WaterValue &&
-      soilMoistureValue < (WaterValue + intervals)) {
-    Serial.println("Very Wet");
-  } else if (soilMoistureValue > (WaterValue + intervals) &&
-             soilMoistureValue < (AirValue - intervals)) {
-    Serial.println("Wet");
-  } else if (soilMoistureValue < AirValue &&
-             soilMoistureValue > (AirValue - intervals)) {
-    Serial.println("Dry");
+  // Kalibrierung
+  calibration::print();
+
+  // Feuchtigkeitsmessung
+  const int moistureInterval = moisture::getInterval(4);
+  switch (moistureInterval) {
+    case 0:
+      Serial.println("Sehr trocken");
+      break;
+    case 1:
+      Serial.println("Trocken");
+      break;
+    case 2:
+      Serial.println("Feucht");
+      break;
+    case 3:
+      Serial.println("Sehr feucht");
+      break;
   }
   delay(100);
 }
