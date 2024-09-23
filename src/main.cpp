@@ -37,7 +37,9 @@ loop()
                    moisture::getValue(5, 3) };
 
   // Schalte digitale Pins ein oder aus
+  // Loop über alle Werte
   for (int i = 0; i < 4; i++) {
+    // Feuchtigkeitswert die kleiner 2 sind, schalte den Pin ein
     if (values[i] < 2) {
       digitalWrite(i, HIGH);
     } else {
