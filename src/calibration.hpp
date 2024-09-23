@@ -15,7 +15,7 @@ namespace calibration {
 void
 print(const int pin)
 {
-  const int val = analogRead(0);
+  const int val = analogRead(pin);
   Serial.println("AnalogPin " + String(pin) + ": " + String(val));
 }
 } // namespace calibration
