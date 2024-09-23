@@ -32,6 +32,30 @@ static inline int AirValue = 800;
 static inline int WaterValue = 400;
 
 /**
+ * @brief Liest den Wert von einem analogen Pin.
+ *
+ * Diese Funktion liest den aktuellen Wert von einem analogen Pin und gibt ihn
+ * zurück.
+ *
+ * @param channel Der Kanal, von dem der Wert gelesen werden soll.
+ * @return Der gelesene Wert.
+ */
+const int
+readFromChannel(const int channel)
+{
+  switch (channel) {
+    case 0:
+      return analogRead(A0);
+    case 1:
+      return analogRead(A1);
+    case 2:
+      return analogRead(A2);
+    case 3:
+      return analogRead(A3);
+  }
+}
+
+/**
  * @brief Gibt den Feuchtigkeitswert zurück.
  *
  * Diese Funktion gibt den Feuchtigkeitswert zurück, der aufgrund des
@@ -59,29 +83,5 @@ getValue(const int numIntervals, const int channel)
   }
 
   return numIntervals;
-}
-
-/**
- * @brief Liest den Wert von einem analogen Pin.
- *
- * Diese Funktion liest den aktuellen Wert von einem analogen Pin und gibt ihn
- * zurück.
- *
- * @param channel Der Kanal, von dem der Wert gelesen werden soll.
- * @return Der gelesene Wert.
- */
-const int
-readFromChannel(const int channel)
-{
-  switch (channel) {
-    case 0:
-      return analogRead(A0);
-    case 1:
-      return analogRead(A1);
-    case 2:
-      return analogRead(A2);
-    case 3:
-      return analogRead(A3);
-  }
 }
 } // namespace moisture
