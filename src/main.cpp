@@ -3,19 +3,32 @@
 #include "moisture.hpp"
 #include <Arduino.h>
 
-// Hier wird die Funktion der Pins festgelegt
+/**
+ * @file main.cpp
+ * @brief Hauptprogramm des Projekts.
+ */
+
+/**
+ * @brief Initialisiert die serielle Kommunikation.
+ */
 void
 setup()
 {
   Serial.begin(9600); // open serial port, set the baud rate to 9600 bps
 }
 
-// Hauptprogramm
+/**
+ * @brief Hauptprogrammschleife des Projekts.
+ */
 void
 loop()
 {
   // Kalibrierung
   calibration::print();
+
+  // Werte der Kalibrierung setzen
+  moisture::AirValue = 824;
+  moisture::WaterValue = 477;
 
   // Feuchtigkeitsmessung
   const int moistureInterval = moisture::getInterval(4);
