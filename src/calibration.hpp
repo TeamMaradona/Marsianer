@@ -16,7 +16,6 @@ void
 print()
 {
   const int val = analogRead(0);
-  Serial.println(val); // print the value to serial port
-  delay(1000);         // wait for 100ms
+  Serial.println(val);
 }
 } // namespace calibration

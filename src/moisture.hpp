@@ -11,7 +11,9 @@ namespace moisture {
  * @brief Der Kalibrierungswert für Luft.
  *
  * Dieser Wert wird verwendet, um den Bereich der Bodenfeuchtigkeit zu
- * kalibrieren. Der Wert wird durch Messung der Bodenfeuchtigkeit in der Luft
+ * kalibrieren.
+ *
+ * Der Wert wird durch Messung der Bodenfeuchtigkeit in der Luft
  * bestimmt.
  *
  */
@@ -21,7 +23,9 @@ static inline int AirValue = 800;
  * @brief Der Kalibrierungswert für Wasser.
  *
  * Dieser Wert wird verwendet, um den Bereich der Bodenfeuchtigkeit zu
- * kalibrieren. Der Wert wird durch Messung der Bodenfeuchtigkeit in Wasser
+ * kalibrieren.
+ *
+ * Der Wert wird durch Messung der Bodenfeuchtigkeit in Wasser
  * bestimmt.
  *
  */

@@ -1,0 +1,43 @@
+# Doxyfile template for Marsianer - Automatischer Kräutergarten
+
+# Project-related configuration
+PROJECT_NAME           = "Marsianer"
+PROJECT_BRIEF          = "Ein automatisierter Kräutergarten basierend auf Arduino-Technologie"
+OUTPUT_LANGUAGE        = German
+INPUT                  = src
+FILE_PATTERNS          = *.cpp *.hpp
+RECURSIVE              = YES
+
+# Output directory
+OUTPUT_DIRECTORY       = doxygen 
+
+# Documentation generation
+GENERATE_HTML          = YES
+GENERATE_TREEVIEW      = YES         # Treeview required
+DISABLE_INDEX          = NO          # Enable index
+FULL_SIDEBAR           = NO          # Disable full sidebar
+
+# Extra stylesheets for HTML output
+HTML_EXTRA_STYLESHEET  = doxygen-awesome-css/doxygen-awesome.css
+HTML_COLORSTYLE        = LIGHT       # Required with Doxygen >= 1.9.5
+
+# Source code documentation
+EXTRACT_ALL            = YES         # Document all members
+EXTRACT_PRIVATE        = NO          # Skip private members
+EXTRACT_STATIC         = NO
+SOURCE_BROWSER         = YES         # Enable code browsing
+
+# Diagrams
+HAVE_DOT               = YES
+CALL_GRAPH             = YES
+CALLER_GRAPH           = YES
+DOT_PATH               = /usr/bin/dot
+DOT_FONTNAME           = Sans
+INTERACTIVE_SVG        = YES
+
+# Other options
+QUIET                  = NO
+WARNINGS               = YES
+WARN_IF_UNDOCUMENTED   = NO
+GENERATE_LATEX         = NO
+GENERATE_MAN           = NO

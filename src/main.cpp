@@ -23,7 +23,7 @@ setup()
 void
 loop()
 {
-  // Kalibrierung
+  // Kalibrierungsdaten ausgeben
   calibration::print();
 
   // Werte der Kalibrierung setzen
@@ -46,5 +46,5 @@ loop()
       Serial.println("Sehr feucht");
       break;
   }
-  delay(100);
+  delay(1000);
 }
