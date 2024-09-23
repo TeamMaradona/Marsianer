@@ -1,0 +1,7 @@
+<map id="loop" name="loop">
+<area shape="rect" id="Node000001" title="Hauptprogrammschleife des Projekts." alt="" coords="5,32,54,62"/>
+<area shape="rect" id="Node000002" href="$namespacemoisture.html#aae71e61404ae97f0f1732a0ad69d9f6e" title="Berechnet das Intervall der Bodenfeuchtigkeit basierend auf der Kalibrierung." alt="" coords="102,5,256,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="53,40,86,34,87,39,54,45"/>
+<area shape="rect" id="Node000003" href="$namespacecalibration.html#a19709ba419ff8e47f455d47efbfd35ba" title="Liest den aktuellen Sensorwert des analogen Pins 0 und gibt ihn über USB aus. Diese Funktion wird ver..." alt="" coords="118,59,240,88"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="54,48,103,57,102,62,53,54"/>
+</map>
