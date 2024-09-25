@@ -111,12 +111,12 @@ $(function(){initNavTree('main_8cpp_source.html',''); initResizable(true); });
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d">   15</a></span><a class="code hl_function" href="main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d">setup</a>()</div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>{</div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>  Serial.begin(9600);</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>  <span class="comment">// Initialisiere die digitalen Pins</span></div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>  pinMode(0, OUTPUT);</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>  pinMode(1, OUTPUT);</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>  pinMode(2, OUTPUT);</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>  pinMode(3, OUTPUT);</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>  <span class="comment">// Initialisiere die digitalen Pins</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>  pinMode(2, OUTPUT);</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>  pinMode(3, OUTPUT);</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>  pinMode(4, OUTPUT);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>  pinMode(5, OUTPUT);</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>}</div>
 </div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
@@ -131,36 +131,35 @@ $(function(){initNavTree('main_8cpp_source.html',''); initResizable(true); });
 <div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>  <a class="code hl_function" href="namespacecalibration.html#a09253e637600a8af813ef01262cbf0dc">calibration::print</a>(3);</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>  <span class="comment">// Werte der Kalibrierung setzen</span></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>  moisture::AirValue = 824;</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>  moisture::WaterValue = 435;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>  moisture::AirValue = 700;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>  moisture::WaterValue = 329;</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>  <span class="comment">// Feuchtigkeitsmessung</span></div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>  <span class="keyword">const</span> <span class="keywordtype">int</span> numLevels = 5;</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>  <span class="keywordtype">int</span> values[] = { <a class="code hl_function" href="namespacemoisture.html#ab4af63c6976ed3877ef5296a4f949980">moisture::getValue</a>(numLevels, 0),</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>                   <a class="code hl_function" href="namespacemoisture.html#ab4af63c6976ed3877ef5296a4f949980">moisture::getValue</a>(numLevels, 1),</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>                   <a class="code hl_function" href="namespacemoisture.html#ab4af63c6976ed3877ef5296a4f949980">moisture::getValue</a>(numLevels, 2),</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>                   <a class="code hl_function" href="namespacemoisture.html#ab4af63c6976ed3877ef5296a4f949980">moisture::getValue</a>(numLevels, 3) };</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>  <span class="keywordtype">int</span> values[] = { <a class="code hl_function" href="namespacemoisture.html#ab4af63c6976ed3877ef5296a4f949980">moisture::getValue</a>(numLevels, 2),</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>                   <a class="code hl_function" href="namespacemoisture.html#ab4af63c6976ed3877ef5296a4f949980">moisture::getValue</a>(numLevels, 3),</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>                   <a class="code hl_function" href="namespacemoisture.html#ab4af63c6976ed3877ef5296a4f949980">moisture::getValue</a>(numLevels, 4),</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>                   <a class="code hl_function" href="namespacemoisture.html#ab4af63c6976ed3877ef5296a4f949980">moisture::getValue</a>(numLevels, 5) };</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
 <div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>  <span class="comment">// Schalte digitale Pins ein oder aus</span></div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>  <span class="comment">// Loop über alle Werte</span></div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>  Serial.println(<span class="stringliteral">&quot;Feuchtigkeitswerte:&quot;</span>);</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 4; i++) {</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    Serial.print(<span class="stringliteral">&quot;AnalogPin &quot;</span> + String(i) + <span class="stringliteral">&quot;: Stufe &quot;</span> + String(values[i]) +</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 2; i &lt; 6; i++) {</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    Serial.print(<span class="stringliteral">&quot;AnalogPin &quot;</span> + String(i) + <span class="stringliteral">&quot;: Stufe &quot;</span> + String(values[i - 2]) +</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>                 <span class="stringliteral">&quot; von &quot;</span> + numLevels + <span class="stringliteral">&quot;\n&quot;</span>);</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="comment">// Feuchtigkeitswert die kleiner 2 sind, schalte den Pin ein</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordflow">if</span> (values[i] &gt;= 5) {</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>      digitalWrite(i, HIGH);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordflow">if</span> (values[i - 2] &gt;= 5) {</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>      digitalWrite(i, LOW);</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>      Serial.println(<span class="stringliteral">&quot;&gt;&gt; Aktiviere DigitalPin &quot;</span> + String(i));</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>      digitalWrite(i, LOW);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>      digitalWrite(i, HIGH);</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    }</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>  }</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>  Serial.println(<span class="stringliteral">&quot;Niedrigere Stufe =&gt; feuchter&quot;</span>);</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>  Serial.println(<span class="stringliteral">&quot;===============================================&quot;</span>);</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>  <span class="comment">// Warte 1000ms</span></div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>  delay(1000);</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>}</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>  Serial.println(<span class="stringliteral">&quot;===============================================&quot;</span>);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>  <span class="comment">// Warte 1000ms</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>  delay(1000);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>}</div>
 </div>
 <div class="ttc" id="acalibration_8hpp_html"><div class="ttname"><a href="calibration_8hpp.html">calibration.hpp</a></div><div class="ttdoc">Enthält Funktionen zur Kalibrierung des Bodenfeuchtigkeitssensors.</div></div>
 <div class="ttc" id="amain_8cpp_html_a4fc01d736fe50cf5b977f755b675f11d"><div class="ttname"><a href="main_8cpp.html#a4fc01d736fe50cf5b977f755b675f11d">setup</a></div><div class="ttdeci">void setup()</div><div class="ttdoc">Initialisiert die serielle Kommunikation.</div><div class="ttdef"><b>Definition</b> <a href="#l00015">main.cpp:15</a></div></div>
