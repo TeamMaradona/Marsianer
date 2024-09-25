@@ -73,11 +73,22 @@ getValue(const int numIntervals, const int channel)
   const int intervals = (AirValue - WaterValue) / numIntervals;
 
   // Sensorwert lesen
-  const int soilMoistureValue = readFromChannel(channel);
+  const int soilMoistureValue = readFromChannel(channel - 2);
+  Serial.println("----------------------------------------------");
+  Serial.println("Sensorwert: " + String(soilMoistureValue));
+
+  // Wenn der Sensorwert über den Messwerten liegt kehre direkt zurück
+  if (soilMoistureValue > AirValue) {
+    return 0;
+  }
+  if (soilMoistureValue < WaterValue) {
+    return numIntervals;
+  }
 
   // Berechnung des Feuchtigkeitswertes
   for (int i = 0; i < numIntervals; i++) {
     if (soilMoistureValue > (AirValue - i * intervals)) {
+      Serial.println("Berechne Feuchtigkeitswert: " + String(i));
       return i;
     }
   }
