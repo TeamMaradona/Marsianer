@@ -1,0 +1,5 @@
+<map id="calibration::printAll" name="calibration::printAll">
+<area shape="rect" id="Node000001" title="Liest den aktuellen Sensorwert der analogen Pins 0 bis 3 und gibt ihn über USB aus...." alt="" coords="5,5,143,35"/>
+<area shape="rect" id="Node000002" href="$namespacecalibration.html#a09253e637600a8af813ef01262cbf0dc" title="Liest den aktuellen Sensorwert des analogen Pins 0 und gibt ihn über USB aus. Diese Funktion wird ver..." alt="" coords="191,5,313,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="143,18,175,18,175,23,143,23"/>
+</map>
