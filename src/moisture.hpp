@@ -121,6 +121,12 @@ getValues(const int numLevels)
                           moisture::getValue(numLevels, 3),
                           moisture::getValue(numLevels, 4),
                           moisture::getValue(numLevels, 5) };
+  Serial.println("----------------------------------------------");
+  Serial.println("From getValues:");
+  for (int i = 0; i < 4; i++) {
+    Serial.print("Kanal " + String(i + 2) + ": " + String(values[i]) + " von " +
+                 numLevels + "\n");
+  }
   return values;
 }
 } // namespace moisture

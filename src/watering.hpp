@@ -1,4 +1,5 @@
 #pragma once
+#include "moisture.hpp"
 #include <Arduino.h>
 
 /**
@@ -6,6 +7,22 @@
  * @brief Enthält Funktionen zur Bewässerung der Pflanzen.
  */
 namespace watering {
+
+/**
+ * @brief Die Dauer der Bewässerung in Millisekunden.
+ *
+ * Diese Variable wird verwendet, um die Zeit zu bestimmen, die die Pumpe
+ * aktiviert wird.
+ */
+static inline int wateringDuration = 500;
+
+/**
+ * @brief Die Dauer des Wartens nach der Bewässerung in Millisekunden.
+ *
+ * Diese Variable wird verwendet, um die Zeit zu bestimmen, die gewartet wird,
+ * bevor die nächste Pflanze bewässert wird.
+ */
+static inline int wateringWaitDuration = 500;
 
 /**
  * @brief Startet die Sequenz zum Gießen der Pflanze und wartet damit das Wasser
@@ -21,13 +38,14 @@ void
 waterPlant(const int pinIndex)
 {
   Serial.println("----------------------------------------------");
-  Serial.println(">> Aktiviere DigitalPin " + String(pinIndex));
-  Serial.println(">> Wasser aktiviert...");
-  digitalWrite(pinIndex, HIGH);
-  delay(5000);
+  Serial.println("Bewässerung von Pflanze " + String(pinIndex - 1));
+  Serial.println(">> Aktiviere Pumpe");
   digitalWrite(pinIndex, LOW);
+  Serial.println(">> Wasser aktiviert...");
+  delay(wateringDuration);
+  digitalWrite(pinIndex, HIGH);
   Serial.println(">> Wasser deaktiviert");
-  delay(300000);
+  delay(wateringWaitDuration);
   Serial.println(">> Warte 3 Minuten...");
 }
 
@@ -48,7 +66,7 @@ run(const int* values, const int numLevels)
     Serial.print("AnalogPin " + String(i) + ": Stufe " + String(values[i - 2]) +
                  " von " + numLevels + "\n");
     // Feuchtigkeitswert die kleiner 2 sind, schalte den Pin ein
-    if (values[i - 2] >= 4) {
+    if (values[i - 2] <= moisture::waterThreshold) {
       waterPlant(i);
     }
   }

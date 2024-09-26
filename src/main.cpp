@@ -30,6 +30,11 @@ setup()
   pinMode(3, OUTPUT);
   pinMode(4, OUTPUT);
   pinMode(5, OUTPUT);
+
+  digitalWrite(2, HIGH);
+  digitalWrite(3, HIGH);
+  digitalWrite(4, HIGH);
+  digitalWrite(5, HIGH);
 }
 
 /**
@@ -38,6 +43,10 @@ setup()
 void
 loop()
 {
+  // Nutzerausgabe
+  Serial.println("\n==============================================");
+  Serial.println("Starte Bewässerungssystem");
+
   // Kalibrierungsdaten ausgeben
   calibration::printAll();
 
