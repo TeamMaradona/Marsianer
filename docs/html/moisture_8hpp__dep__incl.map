@@ -1,5 +1,8 @@
 <map id="src/moisture.hpp" name="src/moisture.hpp">
 <area shape="rect" id="Node000001" title="Enthält Funktionen zur Bestimmung der Bodenfeuchtigkeit." alt="" coords="5,5,132,35"/>
-<area shape="rect" id="Node000002" href="$main_8cpp.html" title="Hauptprogramm des Projekts." alt="" coords="19,83,118,113"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="71,51,71,82,66,82,66,51"/>
+<area shape="rect" id="Node000002" href="$main_8cpp.html" title="Hauptprogramm des Projekts." alt="" coords="19,161,118,190"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="58,50,47,83,47,112,54,138,64,159,59,161,49,139,42,113,42,83,53,48"/>
+<area shape="rect" id="Node000003" href="$watering_8hpp.html" title="Enthält Funktionen zur Bewässerung der Pflanzen." alt="" coords="56,83,182,113"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="89,47,112,81,107,84,84,50"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="103,127,80,162,76,159,99,124"/>
 </map>

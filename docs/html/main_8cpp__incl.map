@@ -1,11 +1,15 @@
 <map id="src/main.cpp" name="src/main.cpp">
-<area shape="rect" id="Node000001" title="Hauptprogramm des Projekts." alt="" coords="105,5,204,35"/>
-<area shape="rect" id="Node000002" href="$calibration_8hpp.html" title="Enthält Funktionen zur Kalibrierung des Bodenfeuchtigkeitssensors." alt="" coords="5,83,118,113"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="139,38,93,75,89,71,136,34"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="114,161,196,190"/>
-<area shape="poly" id="edge5_Node000001_Node000003" title=" " alt="" coords="158,36,158,145,152,145,152,36"/>
-<area shape="rect" id="Node000004" href="$moisture_8hpp.html" title="Enthält Funktionen zur Bestimmung der Bodenfeuchtigkeit." alt="" coords="192,83,296,113"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="173,34,218,71,214,75,170,38"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="81,111,127,148,124,153,77,115"/>
-<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="229,115,185,153,181,148,226,111"/>
+<area shape="rect" id="Node000001" title="Hauptprogramm des Projekts." alt="" coords="130,5,230,35"/>
+<area shape="rect" id="Node000002" href="$calibration_8hpp.html" title="Enthält Funktionen zur Kalibrierung des Bodenfeuchtigkeitssensors." alt="" coords="5,161,118,190"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="171,37,84,150,80,146,167,34"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="158,238,240,268"/>
+<area shape="poly" id="edge8_Node000001_Node000003" title=" " alt="" coords="181,36,178,103,183,190,191,223,186,224,178,191,173,103,176,35"/>
+<area shape="rect" id="Node000004" href="$moisture_8hpp.html" title="Enthält Funktionen zur Bestimmung der Bodenfeuchtigkeit." alt="" coords="192,161,296,190"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="189,35,235,145,230,147,184,37"/>
+<area shape="rect" id="Node000005" href="$watering_8hpp.html" title="Enthält Funktionen zur Bewässerung der Pflanzen." alt="" coords="243,83,347,113"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="203,33,262,72,259,77,200,38"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="89,189,161,228,159,233,86,193"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="238,192,217,226,213,223,233,190"/>
+<area shape="poly" id="edge7_Node000005_Node000003" title=" " alt="" coords="305,112,316,149,317,171,310,192,286,218,256,237,253,232,283,214,306,189,312,170,311,150,300,114"/>
+<area shape="poly" id="edge6_Node000005_Node000004" title=" " alt="" coords="288,115,264,149,260,146,283,112"/>
 </map>

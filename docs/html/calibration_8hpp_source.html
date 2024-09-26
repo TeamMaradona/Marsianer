@@ -19,7 +19,6 @@
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
-<link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
@@ -115,10 +114,25 @@ $(function(){initNavTree('calibration_8hpp_source.html',''); initResizable(true)
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>  Serial.println(<span class="stringliteral">&quot;AnalogPin &quot;</span> + String(pin) + <span class="stringliteral">&quot;: &quot;</span> + String(val));</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>}</div>
 </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>} <span class="comment">// namespace calibration</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keywordtype">void</span></div>
+<div class="foldopen" id="foldopen00029" data-start="{" data-end="}">
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="namespacecalibration.html#a97752b88c75fd618db5c9f3331f5aee8">   29</a></span><a class="code hl_function" href="namespacecalibration.html#a97752b88c75fd618db5c9f3331f5aee8">printAll</a>()</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>{</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>  Serial.println(<span class="stringliteral">&quot;----------------------------------------------&quot;</span>);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>  Serial.println(<span class="stringliteral">&quot;Kalibrierungswerte:&quot;</span>);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>  <a class="code hl_function" href="namespacecalibration.html#a09253e637600a8af813ef01262cbf0dc">print</a>(A0);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>  <a class="code hl_function" href="namespacecalibration.html#a09253e637600a8af813ef01262cbf0dc">print</a>(A1);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>  <a class="code hl_function" href="namespacecalibration.html#a09253e637600a8af813ef01262cbf0dc">print</a>(A2);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>  <a class="code hl_function" href="namespacecalibration.html#a09253e637600a8af813ef01262cbf0dc">print</a>(A3);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>  Serial.println(<span class="stringliteral">&quot;----------------------------------------------&quot;</span>);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>}</div>
+</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>} <span class="comment">// namespace calibration</span></div>
 </div>
 <div class="ttc" id="anamespacecalibration_html"><div class="ttname"><a href="namespacecalibration.html">calibration</a></div><div class="ttdef"><b>Definition</b> <a href="#l00008">calibration.hpp:8</a></div></div>
 <div class="ttc" id="anamespacecalibration_html_a09253e637600a8af813ef01262cbf0dc"><div class="ttname"><a href="namespacecalibration.html#a09253e637600a8af813ef01262cbf0dc">calibration::print</a></div><div class="ttdeci">void print(const int pin)</div><div class="ttdoc">Liest den aktuellen Sensorwert des analogen Pins 0 und gibt ihn über USB aus. Diese Funktion wird ver...</div><div class="ttdef"><b>Definition</b> <a href="#l00016">calibration.hpp:16</a></div></div>
+<div class="ttc" id="anamespacecalibration_html_a97752b88c75fd618db5c9f3331f5aee8"><div class="ttname"><a href="namespacecalibration.html#a97752b88c75fd618db5c9f3331f5aee8">calibration::printAll</a></div><div class="ttdeci">void printAll()</div><div class="ttdoc">Liest den aktuellen Sensorwert der analogen Pins 0 bis 3 und gibt ihn über USB aus....</div><div class="ttdef"><b>Definition</b> <a href="#l00029">calibration.hpp:29</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

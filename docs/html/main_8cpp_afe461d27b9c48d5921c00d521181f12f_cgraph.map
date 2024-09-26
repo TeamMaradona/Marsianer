@@ -1,9 +1,17 @@
 <map id="loop" name="loop">
-<area shape="rect" id="Node000001" title="Hauptprogrammschleife des Projekts." alt="" coords="5,32,54,62"/>
-<area shape="rect" id="Node000002" href="$namespacemoisture.html#ab4af63c6976ed3877ef5296a4f949980" title="Gibt den Feuchtigkeitswert zurück." alt="" coords="102,5,241,35"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="53,40,86,34,87,39,54,45"/>
-<area shape="rect" id="Node000004" href="$namespacecalibration.html#a09253e637600a8af813ef01262cbf0dc" title="Liest den aktuellen Sensorwert des analogen Pins 0 und gibt ihn über USB aus. Diese Funktion wird ver..." alt="" coords="110,59,232,88"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="54,49,95,56,94,62,53,54"/>
-<area shape="rect" id="Node000003" href="$namespacemoisture.html#acc04058f6068986fc2294396c5710bc5" title="Liest den Wert von einem analogen Pin." alt="" coords="289,5,483,35"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="242,18,273,18,273,23,242,23"/>
+<area shape="rect" id="Node000001" title="Hauptprogrammschleife des Projekts." alt="" coords="5,85,54,115"/>
+<area shape="rect" id="Node000002" href="$main_8cpp.html#ae369b3765489ee8bd0ea791c1843630f" title=" " alt="" coords="131,5,212,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="47,83,100,45,116,37,118,42,103,49,50,87"/>
+<area shape="rect" id="Node000003" href="$namespacemoisture.html#ab4af63c6976ed3877ef5296a4f949980" title="Gibt den Feuchtigkeitswert zurück." alt="" coords="102,59,241,88"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="53,93,86,87,87,92,54,98"/>
+<area shape="rect" id="Node000005" href="$namespacecalibration.html#a97752b88c75fd618db5c9f3331f5aee8" title="Liest den aktuellen Sensorwert der analogen Pins 0 bis 3 und gibt ihn über USB aus...." alt="" coords="103,112,240,142"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="54,102,88,108,87,114,53,107"/>
+<area shape="rect" id="Node000007" href="$namespacewatering.html#a93dcd275835807be0c4c1d1b7771ecad" title="Testst Feuchtigkeit und triggert die Bewässerungssequenz." alt="" coords="118,165,224,195"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="50,113,103,151,113,156,110,161,100,156,47,118"/>
+<area shape="rect" id="Node000004" href="$namespacemoisture.html#acc04058f6068986fc2294396c5710bc5" title="Liest den Wert von einem analogen Pin." alt="" coords="289,59,483,88"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="242,71,273,71,273,76,242,76"/>
+<area shape="rect" id="Node000006" href="$namespacecalibration.html#a09253e637600a8af813ef01262cbf0dc" title="Liest den aktuellen Sensorwert des analogen Pins 0 und gibt ihn über USB aus. Diese Funktion wird ver..." alt="" coords="325,112,447,142"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="240,124,309,124,309,130,240,130"/>
+<area shape="rect" id="Node000008" href="$namespacewatering.html#a96e0dd37498b64475310e482418312db" title="Startet die Sequenz zum Gießen der Pflanze und wartet damit das Wasser versickern kann." alt="" coords="310,165,462,195"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="225,178,295,178,295,183,225,183"/>
 </map>

@@ -1,0 +1,5 @@
+<map id="watering::run" name="watering::run">
+<area shape="rect" id="Node000001" title="Testst Feuchtigkeit und triggert die Bewässerungssequenz." alt="" coords="5,5,112,35"/>
+<area shape="rect" id="Node000002" href="$namespacewatering.html#a96e0dd37498b64475310e482418312db" title="Startet die Sequenz zum Gießen der Pflanze und wartet damit das Wasser versickern kann." alt="" coords="160,5,311,35"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="112,18,144,18,144,23,112,23"/>
+</map>
