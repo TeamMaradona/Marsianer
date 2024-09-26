@@ -36,7 +36,7 @@ static inline int waterValue = 400;
  *
  * Dieser Wert gibt an, ab welcher Feuchtigkeitsstufe gegossen werden soll.
  *
- * DerWert wird durch testen bestimmt.
+ * Der Wert wird durch testen bestimmt.
  */
 static inline int waterThreshold = 4;
 
@@ -61,6 +61,8 @@ readFromChannel(const int channel)
       return analogRead(A2);
     case 3:
       return analogRead(A3);
+      // Default return value if no case matches
+      return -1;
   }
 }
 
@@ -83,9 +85,7 @@ getValue(const int numIntervals, const int channel)
   const int intervals = (airValue - waterValue) / numIntervals;
 
   // Sensorwert lesen
-  const int soilMoistureValue = readFromChannel(channel - 2);
-  Serial.println("----------------------------------------------");
-  Serial.println("Sensorwert: " + String(soilMoistureValue));
+  const int soilMoistureValue = readFromChannel(channel);
 
   // Wenn der Sensorwert über den Messwerten liegt kehre direkt zurück
   if (soilMoistureValue > airValue) {
@@ -98,29 +98,9 @@ getValue(const int numIntervals, const int channel)
   // Berechnung des Feuchtigkeitswertes
   for (int i = 0; i < numIntervals; i++) {
     if (soilMoistureValue > (airValue - i * intervals)) {
-      Serial.println("Berechne Feuchtigkeitswert: " + String(i));
       return i;
     }
   }
-
   return numIntervals;
-}
-
-/**
- * @brief Gibt die Feuchtigkeitswerte für alle Kanäle zurück.
- *
- * Diese Funktion gibt die Feuchtigkeitswerte für alle Kanäle zurück.
- *
- * @param numLevels Die Anzahl der Feuchtigkeitsstufen.
- * @return Die Feuchtigkeitswerte für alle Kanäle als int Array.
- */
-const int*
-getValues(const int numLevels)
-{
-  static int values[] = { moisture::getValue(numLevels, 2),
-                          moisture::getValue(numLevels, 3),
-                          moisture::getValue(numLevels, 4),
-                          moisture::getValue(numLevels, 5) };
-  return values;
 }
 } // namespace moisture

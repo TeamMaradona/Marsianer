@@ -1,4 +1,5 @@
 #pragma once
+#include "moisture.hpp"
 #include <Arduino.h>
 
 /**
@@ -8,11 +9,41 @@
 namespace watering {
 
 /**
- * @brief Startet die Sequenz zum Gießen der Pflanze und wartet damit das Wasser
- * versickern kann.
+ * @brief Die Dauer der Bewässerung in Millisekunden.
  *
- * Diese Funktion aktiviert den DigitalPin und wartet 5 Sekunden, bevor sie ihn
- * wieder deaktiviert. Danach wird 3 Minuten gewartet, bevor die Funktion
+ * Diese Variable wird verwendet, um die Zeit zu bestimmen, die die Pumpe
+ * aktiviert wird.
+ *
+ * Default: 5 Sekunden
+ */
+static inline int wateringDuration = 5000;
+
+/**
+ * @brief Die Dauer des Wartens nach der Bewässerung in Millisekunden.
+ *
+ * Diese Variable wird verwendet, um die Zeit zu bestimmen, die gewartet wird,
+ * bevor die nächste Pflanze bewässert wird.
+ *
+ * Default: 3 Minuten
+ */
+static inline int wateringWaitDuration = 300000;
+
+/**
+ * @brief Das Intervall, in dem die Pflanzen bewässert werden.
+ *
+ * Diese Variable wird verwendet, um die Zeit zu bestimmen, die zwischen den
+ * Bewässerungen gewartet wird.
+ *
+ * Default: 1 tag = 86400000
+ */
+static inline int wateringInterval = 86400000;
+
+/**
+ * @brief Startet die Sequenz zum Gießen der Pflanze und wartet damit das
+ * Wasser versickern kann.
+ *
+ * Diese Funktion aktiviert den DigitalPin und wartet 5 Sekunden, bevor sie
+ * ihn wieder deaktiviert. Danach wird 3 Minuten gewartet, bevor die Funktion
  * beendet wird.
  *
  * @param pinIndex Der Index des DigitalPins, der aktiviert werden soll.
@@ -20,14 +51,14 @@ namespace watering {
 void
 waterPlant(const int pinIndex)
 {
-  Serial.println("----------------------------------------------");
-  Serial.println(">> Aktiviere DigitalPin " + String(pinIndex));
-  Serial.println(">> Wasser aktiviert...");
-  digitalWrite(pinIndex, HIGH);
-  delay(5000);
+  Serial.println(">> Bewässerung von Pflanze " + String(pinIndex - 1));
+  Serial.println(">> Aktiviere Pumpe");
   digitalWrite(pinIndex, LOW);
+  Serial.println(">> Wasser aktiviert...");
+  delay(wateringDuration);
+  digitalWrite(pinIndex, HIGH);
   Serial.println(">> Wasser deaktiviert");
-  delay(300000);
+  delay(wateringWaitDuration);
   Serial.println(">> Warte 3 Minuten...");
 }
 
@@ -43,13 +74,15 @@ void
 run(const int* values, const int numLevels)
 {
   // Loop über alle Werte
-  Serial.println("Feuchtigkeitswerte:");
+  Serial.println("Kontrolliere Feuchtigkeitswerte...");
   for (int i = 2; i < 6; i++) {
-    Serial.print("AnalogPin " + String(i) + ": Stufe " + String(values[i - 2]) +
-                 " von " + numLevels + "\n");
+    Serial.print("\nAnalogPin " + String(i) + ": Stufe " +
+                 String(values[i - 2]) + " von " + numLevels + "\n");
     // Feuchtigkeitswert die kleiner 2 sind, schalte den Pin ein
-    if (values[i - 2] >= 4) {
+    if (values[i - 2] <= moisture::waterThreshold) {
       waterPlant(i);
+    } else {
+      Serial.println(">> Keine Bewässerung notwendig");
     }
   }
 }

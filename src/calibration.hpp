@@ -28,9 +28,12 @@ print(const int pin)
 void
 printAll()
 {
+  Serial.println("----------------------------------------------");
+  Serial.println("Kalibrierungswerte:");
   print(A0);
   print(A1);
   print(A2);
   print(A3);
+  Serial.println("----------------------------------------------");
 }
 } // namespace calibration
