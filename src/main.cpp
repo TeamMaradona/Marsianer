@@ -52,7 +52,10 @@ loop()
 
   // Feuchtigkeitsmessung
   const int numLevels = 5;
-  const int* values = moisture::getValues(numLevels);
+  const int values[] = { moisture::getValue(numLevels, 0),
+                         moisture::getValue(numLevels, 1),
+                         moisture::getValue(numLevels, 2),
+                         moisture::getValue(numLevels, 3) };
 
   // Bewässerung starten
   watering::run(values, numLevels);

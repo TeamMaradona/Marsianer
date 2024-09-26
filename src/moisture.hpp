@@ -52,6 +52,7 @@ static inline int waterThreshold = 4;
 const int
 readFromChannel(const int channel)
 {
+  Serial.println("Lesen von Kanal " + String(channel));
   switch (channel) {
     case 0:
       return analogRead(A0);
@@ -61,6 +62,8 @@ readFromChannel(const int channel)
       return analogRead(A2);
     case 3:
       return analogRead(A3);
+      // Default return value if no case matches
+      return -1;
   }
 }
 
@@ -79,12 +82,14 @@ readFromChannel(const int channel)
 const int
 getValue(const int numIntervals, const int channel)
 {
+  Serial.println("----------------------------------------------");
+
   // Intervalle für die Ausgabe berechnen
   const int intervals = (airValue - waterValue) / numIntervals;
 
   // Sensorwert lesen
-  const int soilMoistureValue = readFromChannel(channel - 2);
-  Serial.println("----------------------------------------------");
+  const int soilMoistureValue = readFromChannel(channel);
+
   Serial.println("Sensorwert: " + String(soilMoistureValue));
 
   // Wenn der Sensorwert über den Messwerten liegt kehre direkt zurück
@@ -102,31 +107,7 @@ getValue(const int numIntervals, const int channel)
       return i;
     }
   }
-
-  return numIntervals;
-}
-
-/**
- * @brief Gibt die Feuchtigkeitswerte für alle Kanäle zurück.
- *
- * Diese Funktion gibt die Feuchtigkeitswerte für alle Kanäle zurück.
- *
- * @param numLevels Die Anzahl der Feuchtigkeitsstufen.
- * @return Die Feuchtigkeitswerte für alle Kanäle als int Array.
- */
-const int*
-getValues(const int numLevels)
-{
-  static int values[] = { moisture::getValue(numLevels, 2),
-                          moisture::getValue(numLevels, 3),
-                          moisture::getValue(numLevels, 4),
-                          moisture::getValue(numLevels, 5) };
   Serial.println("----------------------------------------------");
-  Serial.println("From getValues:");
-  for (int i = 0; i < 4; i++) {
-    Serial.print("Kanal " + String(i + 2) + ": " + String(values[i]) + " von " +
-                 numLevels + "\n");
-  }
-  return values;
+  return numIntervals;
 }
 } // namespace moisture
