@@ -1,12 +1,21 @@
 
 #include "calibration.hpp"
 #include "moisture.hpp"
+#include "watering.hpp"
 #include <Arduino.h>
 
 /**
  * @file main.cpp
  * @brief Hauptprogramm des Projekts.
  */
+// Werte der Kalibrierung setzen
+void
+configure()
+{
+  moisture::airValue = 700;
+  moisture::waterValue = 329;
+  moisture::waterThreshold = 4;
+}
 
 /**
  * @brief Initialisiert die serielle Kommunikation.
@@ -30,38 +39,15 @@ void
 loop()
 {
   // Kalibrierungsdaten ausgeben
-  calibration::print(0);
-  calibration::print(1);
-  calibration::print(2);
-  calibration::print(3);
-
-  // Werte der Kalibrierung setzen
-  moisture::AirValue = 700;
-  moisture::WaterValue = 329;
+  calibration::printAll();
 
   // Feuchtigkeitsmessung
   const int numLevels = 5;
-  int values[] = { moisture::getValue(numLevels, 2),
-                   moisture::getValue(numLevels, 3),
-                   moisture::getValue(numLevels, 4),
-                   moisture::getValue(numLevels, 5) };
+  const int* values = moisture::getValues(numLevels);
 
-  // Schalte digitale Pins ein oder aus
-  // Loop über alle Werte
-  Serial.println("Feuchtigkeitswerte:");
-  for (int i = 2; i < 6; i++) {
-    Serial.print("AnalogPin " + String(i) + ": Stufe " + String(values[i - 2]) +
-                 " von " + numLevels + "\n");
-    // Feuchtigkeitswert die kleiner 2 sind, schalte den Pin ein
-    if (values[i - 2] >= 5) {
-      digitalWrite(i, LOW);
-      Serial.println(">> Aktiviere DigitalPin " + String(i));
-    } else {
-      digitalWrite(i, HIGH);
-    }
-  }
-  Serial.println("===============================================");
-  // Warte 1000ms
+  // Bewässerung starten
+  watering::run(values, numLevels);
 
+  // Warten bevor der nächste Durchlauf startet
   delay(1000);
 }

@@ -17,7 +17,7 @@ namespace moisture {
  * bestimmt.
  *
  */
-static inline int AirValue = 800;
+static inline int airValue = 800;
 
 /**
  * @brief Der Kalibrierungswert für Wasser.
@@ -29,7 +29,16 @@ static inline int AirValue = 800;
  * bestimmt.
  *
  */
-static inline int WaterValue = 400;
+static inline int waterValue = 400;
+
+/**
+ * @brief Ab dieser Feuchtigkeitsstufe soll gegossen werden.
+ *
+ * Dieser Wert gibt an, ab welcher Feuchtigkeitsstufe gegossen werden soll.
+ *
+ * DerWert wird durch testen bestimmt.
+ */
+static inline int waterThreshold = 4;
 
 /**
  * @brief Liest den Wert von einem analogen Pin.
@@ -60,6 +69,7 @@ readFromChannel(const int channel)
  *
  * Diese Funktion gibt den Feuchtigkeitswert zurück, der aufgrund des
  * Sensorwertes berechnet wird.
+ * Je höher der Wert, desto trockener ist der Boden.
  *
  * @param numIntervals Die Anzahl der Intervalle, in die der Bereich
  *                     der Bodenfeuchtigkeit unterteilt werden soll.
@@ -70,7 +80,7 @@ const int
 getValue(const int numIntervals, const int channel)
 {
   // Intervalle für die Ausgabe berechnen
-  const int intervals = (AirValue - WaterValue) / numIntervals;
+  const int intervals = (airValue - waterValue) / numIntervals;
 
   // Sensorwert lesen
   const int soilMoistureValue = readFromChannel(channel - 2);
@@ -78,21 +88,39 @@ getValue(const int numIntervals, const int channel)
   Serial.println("Sensorwert: " + String(soilMoistureValue));
 
   // Wenn der Sensorwert über den Messwerten liegt kehre direkt zurück
-  if (soilMoistureValue > AirValue) {
+  if (soilMoistureValue > airValue) {
     return 0;
   }
-  if (soilMoistureValue < WaterValue) {
+  if (soilMoistureValue < waterValue) {
     return numIntervals;
   }
 
   // Berechnung des Feuchtigkeitswertes
   for (int i = 0; i < numIntervals; i++) {
-    if (soilMoistureValue > (AirValue - i * intervals)) {
+    if (soilMoistureValue > (airValue - i * intervals)) {
       Serial.println("Berechne Feuchtigkeitswert: " + String(i));
       return i;
     }
   }
 
   return numIntervals;
+}
+
+/**
+ * @brief Gibt die Feuchtigkeitswerte für alle Kanäle zurück.
+ *
+ * Diese Funktion gibt die Feuchtigkeitswerte für alle Kanäle zurück.
+ *
+ * @param numLevels Die Anzahl der Feuchtigkeitsstufen.
+ * @return Die Feuchtigkeitswerte für alle Kanäle als int Array.
+ */
+const int*
+getValues(const int numLevels)
+{
+  static int values[] = { moisture::getValue(numLevels, 2),
+                          moisture::getValue(numLevels, 3),
+                          moisture::getValue(numLevels, 4),
+                          moisture::getValue(numLevels, 5) };
+  return values;
 }
 } // namespace moisture
