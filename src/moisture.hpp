@@ -106,6 +106,14 @@ getValue(const int numIntervals, const int channel)
   return numIntervals;
 }
 
+/**
+ * @brief Gibt die Feuchtigkeitswerte für alle Kanäle zurück.
+ *
+ * Diese Funktion gibt die Feuchtigkeitswerte für alle Kanäle zurück.
+ *
+ * @param numLevels Die Anzahl der Feuchtigkeitsstufen.
+ * @return Die Feuchtigkeitswerte für alle Kanäle als int Array.
+ */
 const int*
 getValues(const int numLevels)
 {
