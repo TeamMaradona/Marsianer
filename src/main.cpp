@@ -7,6 +7,14 @@
  * @file main.cpp
  * @brief Hauptprogramm des Projekts.
  */
+// Werte der Kalibrierung setzen
+void
+configure()
+{
+  moisture::airValue = 700;
+  moisture::waterValue = 329;
+  moisture::waterThreshold = 4;
+}
 
 /**
  * @brief Initialisiert die serielle Kommunikation.
@@ -30,21 +38,11 @@ void
 loop()
 {
   // Kalibrierungsdaten ausgeben
-  calibration::print(0);
-  calibration::print(1);
-  calibration::print(2);
-  calibration::print(3);
-
-  // Werte der Kalibrierung setzen
-  moisture::AirValue = 700;
-  moisture::WaterValue = 329;
+  calibration::printAll();
 
   // Feuchtigkeitsmessung
   const int numLevels = 5;
-  int values[] = { moisture::getValue(numLevels, 2),
-                   moisture::getValue(numLevels, 3),
-                   moisture::getValue(numLevels, 4),
-                   moisture::getValue(numLevels, 5) };
+  const int* values = moisture::getValues(numLevels);
 
   // Schalte digitale Pins ein oder aus
   // Loop über alle Werte
@@ -53,11 +51,18 @@ loop()
     Serial.print("AnalogPin " + String(i) + ": Stufe " + String(values[i - 2]) +
                  " von " + numLevels + "\n");
     // Feuchtigkeitswert die kleiner 2 sind, schalte den Pin ein
-    if (values[i - 2] >= 5) {
-      digitalWrite(i, LOW);
-      Serial.println(">> Aktiviere DigitalPin " + String(i));
+    if (values[i - 2] >= 4) {
+      /* Serial.println("----------------------------------------------");
+       Serial.println(">> Aktiviere DigitalPin " + String(i));
+       Serial.println(">> Wasser aktiviert...");
+       digitalWrite(i, HIGH);
+       delay(5000);
+       digitalWrite(i, LOW);
+       Serial.println(">> Wasser deaktiviert");
+       delay(300000);
+       Serial.println(">> Warte 3 Minuten...");*/
     } else {
-      digitalWrite(i, HIGH);
+      digitalWrite(i, LOW);
     }
   }
   Serial.println("===============================================");
