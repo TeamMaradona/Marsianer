@@ -36,7 +36,7 @@ static inline int waterValue = 400;
  *
  * Dieser Wert gibt an, ab welcher Feuchtigkeitsstufe gegossen werden soll.
  *
- * DerWert wird durch testen bestimmt.
+ * Der Wert wird durch testen bestimmt.
  */
 static inline int waterThreshold = 4;
 
@@ -52,7 +52,6 @@ static inline int waterThreshold = 4;
 const int
 readFromChannel(const int channel)
 {
-  Serial.println("Lesen von Kanal " + String(channel));
   switch (channel) {
     case 0:
       return analogRead(A0);
@@ -82,15 +81,11 @@ readFromChannel(const int channel)
 const int
 getValue(const int numIntervals, const int channel)
 {
-  Serial.println("----------------------------------------------");
-
   // Intervalle für die Ausgabe berechnen
   const int intervals = (airValue - waterValue) / numIntervals;
 
   // Sensorwert lesen
   const int soilMoistureValue = readFromChannel(channel);
-
-  Serial.println("Sensorwert: " + String(soilMoistureValue));
 
   // Wenn der Sensorwert über den Messwerten liegt kehre direkt zurück
   if (soilMoistureValue > airValue) {
@@ -103,11 +98,9 @@ getValue(const int numIntervals, const int channel)
   // Berechnung des Feuchtigkeitswertes
   for (int i = 0; i < numIntervals; i++) {
     if (soilMoistureValue > (airValue - i * intervals)) {
-      Serial.println("Berechne Feuchtigkeitswert: " + String(i));
       return i;
     }
   }
-  Serial.println("----------------------------------------------");
   return numIntervals;
 }
 } // namespace moisture

@@ -14,7 +14,11 @@ configure()
 {
   moisture::airValue = 700;
   moisture::waterValue = 329;
+
   moisture::waterThreshold = 4;
+  watering::wateringDuration = 1000;
+  watering::wateringWaitDuration = 5000;
+  watering::wateringInterval = 10000;
 }
 
 /**
@@ -43,6 +47,9 @@ setup()
 void
 loop()
 {
+  // Konfiguration
+  configure();
+
   // Nutzerausgabe
   Serial.println("\n==============================================");
   Serial.println("Starte Bewässerungssystem");
@@ -61,5 +68,5 @@ loop()
   watering::run(values, numLevels);
 
   // Warten bevor der nächste Durchlauf startet
-  delay(1000);
+  delay(10000);
 }
