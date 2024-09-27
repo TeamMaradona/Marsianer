@@ -12,13 +12,14 @@
 void
 configure()
 {
+  // Kalibrierungswerte setzen
   moisture::airValue = 700;
   moisture::waterValue = 329;
 
-  moisture::waterThreshold = 4;
-  watering::wateringDuration = 1000;
-  watering::wateringWaitDuration = 5000;
-  watering::wateringInterval = 10000;
+  // So kann man die default Konfiguration überspielen
+  moisture::waterThreshold = 3;
+  watering::wateringDuration = 2000;
+  watering::wateringWaitDuration = 30000;
 }
 
 /**
@@ -68,5 +69,7 @@ loop()
   watering::run(values, numLevels);
 
   // Warten bevor der nächste Durchlauf startet
-  delay(10000);
+  for (int i = 0; i < 86; i++) {
+    delay(1000000);
+  }
 }
