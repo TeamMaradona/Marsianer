@@ -29,16 +29,6 @@ static inline int wateringDuration = 5000;
 static inline int wateringWaitDuration = 300000;
 
 /**
- * @brief Das Intervall, in dem die Pflanzen bewässert werden.
- *
- * Diese Variable wird verwendet, um die Zeit zu bestimmen, die zwischen den
- * Bewässerungen gewartet wird.
- *
- * Default: 1 tag = 86400000
- */
-static inline int wateringInterval = 86400000;
-
-/**
  * @brief Startet die Sequenz zum Gießen der Pflanze und wartet damit das
  * Wasser versickern kann.
  *
